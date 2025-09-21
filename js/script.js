@@ -84,3 +84,117 @@
         window.addEventListener('scroll', animateOnScroll);
         // Trigger once on load
         window.addEventListener('load', animateOnScroll);
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        const mobileMenuOverlay = document.createElement('div');
+        mobileMenuOverlay.className = 'mobile-menu-overlay';
+        
+        // Create mobile menu overlay
+        mobileMenuOverlay.innerHTML = `
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-header">
+                    <a href="#" class="logo">Gourmet<span>Delights</span></a>
+                    <button class="mobile-menu-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <ul class="mobile-nav">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reservation">Reservations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-actions">
+                    <button class="theme-toggle" id="mobile-theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">3</span>
+                    </a>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(mobileMenuOverlay);
+        
+        // Close mobile menu function
+        const closeMobileMenu = () => {
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            mobileMenuBtn.classList.remove('active');
+        };
+        
+        // Mobile menu toggle functionality
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            mobileMenuBtn.classList.add('active');
+        });
+        
+        // Close button
+        mobileMenuOverlay.querySelector('.mobile-menu-close').addEventListener('click', closeMobileMenu);
+        
+        // Close on overlay click
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileMenuOverlay) {
+                closeMobileMenu();
+            }
+        });
+        
+        // Close on nav link click
+        mobileMenuOverlay.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        // Mobile theme toggle
+        const mobileThemeToggle = mobileMenuOverlay.querySelector('#mobile-theme-toggle');
+        const mobileThemeIcon = mobileThemeToggle.querySelector('i');
+        
+        mobileThemeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                mobileThemeIcon.classList.remove('fa-moon');
+                mobileThemeIcon.classList.add('fa-sun');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                mobileThemeIcon.classList.remove('fa-sun');
+                mobileThemeIcon.classList.add('fa-moon');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+
+        

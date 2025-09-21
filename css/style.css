@@ -180,6 +180,118 @@
             font-size: 24px;
             color: var(--dark);
             cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 320px;
+            height: 100%;
+            background-color: var(--light);
+            padding: 20px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-menu-overlay.active .mobile-menu-content {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-close:hover {
+            color: var(--primary);
+        }
+
+        .mobile-nav {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 15px 0;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .mobile-nav a:hover {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .mobile-menu-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .mobile-menu-actions .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--dark);
+            font-size: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-actions .cart-icon {
+            position: relative;
+            color: var(--dark);
+            font-size: 20px;
+            text-decoration: none;
         }
 
         /* Hero Section */
@@ -628,6 +740,27 @@
         }
 
         /* Responsive Design */
+        
+        /* Large Tablets and Small Desktops */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .header-container {
+                padding: 15px 0;
+            }
+            
+            .logo {
+                font-size: 24px;
+            }
+            
+            nav ul li {
+                margin-left: 20px;
+            }
+        }
+
+        /* Tablets */
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 3rem;
@@ -635,9 +768,25 @@
             
             .reservation-container {
                 grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .menu-items {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 30px;
             }
         }
 
+        /* Mobile Landscape and Small Tablets */
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -647,17 +796,235 @@
                 display: block;
             }
             
+            .header-container {
+                padding: 12px 0;
+            }
+            
+            .logo {
+                font-size: 22px;
+            }
+            
+            .header-actions {
+                gap: 15px;
+            }
+            
+            .theme-toggle {
+                margin-right: 15px;
+                font-size: 18px;
+            }
+            
+            .cart-icon {
+                font-size: 18px;
+            }
+            
+            .hero {
+                padding-top: 70px;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 25px;
             }
             
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
+            }
+            
+            .btn {
+                padding: 10px 24px;
+                font-size: 14px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .categories {
+                gap: 10px;
+                margin-bottom: 30px;
+            }
+            
+            .category-btn {
+                padding: 6px 16px;
+                font-size: 14px;
             }
             
             .menu-items {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+            }
+            
+            .menu-item-content {
+                padding: 15px;
+            }
+            
+            .menu-item-title {
+                font-size: 1.1rem;
+            }
+            
+            .reservation-form {
+                padding: 20px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 10px;
+            }
+            
+            .gallery-item {
+                height: 200px;
+            }
+            
+            .testimonial {
+                padding: 20px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                text-align: center;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .newsletter-input {
+                border-radius: 4px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 4px;
+                padding: 12px 15px;
+            }
+        }
+
+        /* Mobile Portrait */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .header-container {
+                padding: 10px 0;
+            }
+            
+            .logo {
+                font-size: 20px;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+                line-height: 1.1;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title p {
+                font-size: 14px;
+            }
+            
+            .categories {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .category-btn {
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
+            }
+            
+            .menu-items {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .menu-item-img {
+                height: 180px;
+            }
+            
+            .reservation-content h2 {
+                font-size: 2rem;
+            }
+            
+            .reservation-form {
+                padding: 15px;
+            }
+            
+            .form-control {
+                padding: 10px 12px;
+                font-size: 14px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            
+            .gallery-item {
+                height: 150px;
+            }
+            
+            .testimonial {
+                padding: 15px;
+            }
+            
+            .testimonial-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .testimonial-avatar {
+                margin-right: 0;
+            }
+            
+            .mobile-menu-content {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Extra Small Devices */
+        @media (max-width: 320px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .menu-item-content {
+                padding: 12px;
+            }
+            
+            .reservation-form {
+                padding: 12px;
+            }
+            
+            .gallery-item {
+                height: 120px;
             }
         }
 
@@ -710,5 +1077,72 @@
             background-color: var(--light);
             color: var(--dark);
             border-color: var(--gray);
+        }
+
+        /* Dark Mode Mobile Menu */
+        body.dark-mode .mobile-menu-content {
+            background-color: var(--light);
+        }
+
+        body.dark-mode .mobile-menu-header {
+            border-bottom-color: var(--light-gray);
+        }
+
+        body.dark-mode .mobile-nav a {
+            color: var(--dark);
+        }
+
+        body.dark-mode .mobile-nav a:hover {
+            color: var(--primary);
+        }
+
+        body.dark-mode .mobile-menu-actions {
+            border-top-color: var(--light-gray);
+        }
+
+        body.dark-mode .mobile-menu-close {
+            color: var(--dark);
+        }
+
+        body.dark-mode .mobile-menu-actions .theme-toggle {
+            color: var(--dark);
+        }
+
+        body.dark-mode .mobile-menu-actions .cart-icon {
+            color: var(--dark);
+        }
+
+        /* Header Scroll Effect */
+        header.scrolled {
+            background-color: rgba(248, 248, 248, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode header.scrolled {
+            background-color: rgba(26, 26, 26, 0.95);
+        }
+
+        /* Improved Header Actions Spacing */
+        .header-actions {
+            gap: 10px;
+        }
+
+        /* Better Mobile Menu Button Animation */
+        .mobile-menu-btn {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-btn.active i {
+            transform: rotate(90deg);
         }
  
