@@ -7,13 +7,15 @@
     <title>Gourmet Delights | Premium Restaurant Experience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <!-- Header -->
+    <!-- Header -->  
     <header>
         <div class="container header-container">
             <a href="#" class="logo">Gourmet<span>Delights</span></a>
@@ -49,12 +51,16 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="container hero-content">
-            <h1>Exquisite Dining Experience</h1>
-            <p>Discover the perfect blend of flavor and ambiance at Dubai's premier culinary destination</p>
-            <div class="hero-buttons">
-                <a href="#" class="btn">Order Online</a>
-                <a href="#" class="btn btn-outline">Book a Table</a>
+            <h1 data-aos="fade-up" data-aos-duration="1000">Exquisite Dining Experience</h1>
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Discover the perfect blend of flavor and
+                ambiance at Dubai's premier culinary destination</p>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <a href="#menu" class="btn">Order Online</a>
+                <a href="#reservation" class="btn btn-outline">Book a Table</a>
             </div>
+        </div>
+        <div class="scroll-indicator" data-aos="fade-in" data-aos-delay="1000">
+            <div class="mouse"></div>
         </div>
     </section>
 
@@ -62,6 +68,28 @@
     <div class="offer-banner">
         <p>🔥 30% Off on Weekend Buffets - Limited Time Offer!</p>
     </div>
+
+    <!-- Trust Indicators / Awards -->
+    <section id="awards" class="awards">
+        <div class="container awards-container">
+            <div class="award-item" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fas fa-award"></i>
+                <p>Michelin Star 2024</p>
+            </div>
+            <div class="award-item" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fas fa-utensils"></i>
+                <p>Best Fine Dining UAE</p>
+            </div>
+            <div class="award-item" data-aos="zoom-in" data-aos-delay="300"> 
+                <i class="fas fa-star"></i>
+                <p>Top 50 Restaurants</p>
+            </div>
+            <div class="award-item" data-aos="zoom-in" data-aos-delay="400">
+                <i class="fas fa-leaf"></i> 
+                <p>100% Organic Ingredients</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Menu Section -->
     <section class="menu" id="menu">
@@ -88,8 +116,7 @@
             <div class="menu-items">
                 <!-- Menu Item 1 -->
                 <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGl6emF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-                        alt="Truffle Pizza" class="menu-item-img">
+                    <img src="images/truffle_pizza_1772292517519.png" alt="Truffle Pizza" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-header">
                             <h3 class="menu-item-title">Truffle Pizza</h3>
@@ -118,8 +145,7 @@
 
                 <!-- Menu Item 2 -->
                 <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHN0ZWFrfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-                        alt="Wagyu Steak" class="menu-item-img">
+                    <img src="images/wagyu_steak_1772292493749.png" alt="Wagyu Steak" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-header">
                             <h3 class="menu-item-title">Wagyu Steak</h3>
@@ -232,8 +258,7 @@
 
                 <!-- Menu Item 6 -->
                 <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFuY2FrZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-                        alt="Berry Pancakes" class="menu-item-img">
+                    <img src="images/berry_pancakes_1772292586420.png" alt="Berry Pancakes" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-header">
                             <h3 class="menu-item-title">Berry Pancakes</h3>
@@ -328,8 +353,7 @@
 
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                        alt="Restaurant Interior">
+                    <img src="images/gallery_interior_1772292550728.png" alt="Restaurant Bar">
                     <div class="gallery-item-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
@@ -485,6 +509,7 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
 
 </body>
